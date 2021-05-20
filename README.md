@@ -1,33 +1,48 @@
+# US Web Design System (USWDS) Wordpress Starter Theme
 
-# The Timber Starter Theme
+An accessilble Wordpress Theme based on the [Timber Starter Theme](https://github.com/timber/starter-theme).
+[Timber](https://github.com/timber/timber) is a plugin that allows you to "write your HTML using the Twig Template Engine separate from your PHP files".
 
-The "_s" for Timber: a dead-simple theme that you can build from. The primary purpose of this theme is to provide a file structure rather than a framework for markup or styles. Configure your Sass, scripts, and task runners however you would like!
+## Features
 
-[![Build Status](https://travis-ci.com/timber/starter-theme.svg?branch=master)](https://travis-ci.com/github/timber/starter-theme)
+* Built using [US Web Design System](https://designsystem.digital.gov/) components and design tokens for accessibility and responsiveness
+* WooCommerce support
+* Custom Gutenburg blocks for cards and hero components
+* Options page with theme settings
 
-## Installing the Theme
+* This theme requires [Advanced Custom Fields Pro](https://www.advancedcustomfields.com/) for custom blocks and options
 
-Install this theme as you would any other, and be sure the Timber plugin is activated. But hey, let's break it down into some bullets:
+## Installation and setup
 
-1. Make sure you have installed the plugin for the [Timber Library](https://wordpress.org/plugins/timber-library/) (and Advanced Custom Fields - they [play quite nicely](https://timber.github.io/docs/guides/acf-cookbook/#nav) together). 
-2. Download the zip for this theme (or clone it) and move it to `wp-content/themes` in your WordPress installation. 
-3. Rename the folder to something that makes sense for your website (generally no spaces and all lowercase). You could keep the name `timber-starter-theme` but the point of a starter theme is to make it your own!
-4. Activate the theme in Appearance >  Themes.
-5. Do your thing! And read [the docs](https://timber.github.io/docs/).
+Download the [zip file](https://github.com/cpearson3/wordpress-uswds-starter/archive/refs/heads/master.zip) and install it using in the WordPress Admin.
 
-## What's here?
+Or...
 
-`static/` is where you can keep your static front-end scripts, styles, or images. In other words, your Sass files, JS files, fonts, and SVGs would live here.
+1. Open a terminal and change to your wp-content/themes folder
+2. Clone the repository: git clone https://github.com/cpearson3/wordpress-uswds-starter.git
+3. Install project dependencies: npm install
+4. Build stylesheet: npm run watch:sass
+5. Build javascript: npm run watch:js
 
-`templates/` contains all of your Twig templates. These pretty much correspond 1 to 1 with the PHP files that respond to the WordPress template hierarchy. At the end of each PHP template, you'll notice a `Timber::render()` function whose first parameter is the Twig file where that data (or `$context`) will be used. Just an FYI.
+### Activating the theme
 
-`bin/` and `tests/` ... basically don't worry about (or remove) these unless you know what they are and want to.
+1. Login to the WordPress admin panel
+2. Go to Appearance > Themes
+3. Select Bootsmooth WordPress
+4. Click Activate and reload the site
 
-## Other Resources
+## Customizing the stylesheet
 
-* [This branch](https://github.com/laras126/timber-starter-theme/tree/tackle-box) of the starter theme has some more example code with ACF and a slightly different set up.
-* [Twig for Timber Cheatsheet](http://notlaura.com/the-twig-for-timber-cheatsheet/)
-* [Timber and Twig Reignited My Love for WordPress](https://css-tricks.com/timber-and-twig-reignited-my-love-for-wordpress/) on CSS-Tricks
-* [A real live Timber theme](https://github.com/laras126/yuling-theme).
-* [Timber Video Tutorials](http://timber.github.io/timber/#video-tutorials) and [an incomplete set of screencasts](https://www.youtube.com/playlist?list=PLuIlodXmVQ6pkqWyR6mtQ5gQZ6BrnuFx-) for building a Timber theme from scratch.
+The main stylesheet source lives in **scss/style.scss** and is compiled to **style.css**.
 
+## License
+
+MIT License
+
+Copyright (c) 2021 Clarence B Pearson III
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
