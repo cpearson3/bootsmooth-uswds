@@ -1,0 +1,49 @@
+{% if menu %}
+	<ul class="usa-nav__primary usa-accordion">
+	{% for item in items %}
+		{% if item.children %}
+		<li class="usa-nav__primary-item">
+			<button class="usa-accordion__button usa-nav__link" aria-expanded="false" aria-controls="{{item.title|replace({' ': '-'}) }}-nav"><span>{{ item.title }}</span></button>
+			<ul id="{{item.title|replace({' ': '-'}) }}-nav" class="usa-nav__submenu" hidden="hidden">
+			{% for child in item.children %}
+			<li class="usa-nav__submenu-item {{ item.classes | join(' ') }}">
+				<a href="{{ child.link }}" class=""  target="{{ child.target }}">{{ child.title }}</a>
+			</li>
+			{% endfor %}
+			</ul>
+		</li>
+		{% else %}
+		<li class="usa-nav__primary-item {{ item.classes | join(' ') }}">
+			<a class="usa-nav__link" href="{{ item.link }}" target="{{ item.target }}"><span>{{ item.title }}</span></a>
+		</li> 
+		{% endif %}
+	{% endfor %}
+	</ul>
+{% endif %}
+
+<div class="usa-nav__secondary">
+{% if top_menu %}
+	<ul class="usa-nav__secondary-links">
+	{% for item in top_items %}
+		<li class="usa-nav__secondary-item">
+		<a href="{{ item.link }}" target="{{ item.target }}">{{ item.title }}</a>
+		</li>
+	{% endfor %}
+	{% if woocommerce %}
+		<li class="usa-nav__secondary-item">
+		<a class="text-bold" href="/cart">My Cart ({{ fn('woocommerce_cart_contents_count') }})</a>
+		</li>
+	{% else %}
+		<li class="usa-nav__secondary-item">
+		<a onclick="alert('no commerce')" href="#">Nope</a>
+		</li>
+	{% endif %}
+	</ul>
+{% endif %}
+	<form action="/" class="usa-search usa-search--small " role="search">
+		<label class="usa-sr-only" for="extended-search-field-small">Search small</label>
+		<input class="usa-input" id="extended-search-field-small" type="search" name="s">
+		<button class="usa-button" type="submit"><span class="usa-sr-only">Search</span></button>
+	</form>
+</div>
+

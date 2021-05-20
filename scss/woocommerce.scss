@@ -1,0 +1,130 @@
+/* WooCommerce Related Styles */
+
+// WooCommerce Styles
+.woocommerce {
+
+    // Image Gallery
+    .woocommerce-product-gallery__wrapper {
+        display: flex;
+        flex-wrap: wrap;
+
+        .woocommerce-product-gallery__image:not(:first-child) {
+            margin: 1rem;
+        }
+    }
+
+    // Single Product Details
+    .single-product-details {
+
+        .price {
+            @include u-text('ls-1');
+            @include u-font('serif', 'lg');
+            @include u-text(bold);
+        }
+
+        // Cart Form
+        .cart {
+            //@extend .margin-bottom-2;
+            @include u-margin-bottom(2);
+
+            .quantity {
+                @include u-margin-bottom(2);
+            }
+
+            .variations {
+                @include u-width('mobile');
+
+                .value {
+                    text-align: right;
+                }
+            }
+
+             // Button Overrides
+            .button {
+                @include u-margin-top(1);
+                @extend .usa-button;
+                @extend .usa-button--secondary;
+            }
+        }
+
+        // Product meta information
+        .product_meta {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}
+
+// WooCommerce Tabs
+.woocommerce-tabs {
+    ul.tabs {
+        @extend .usa-nav__primary;
+        @extend .usa-accordion;
+        @extend .grid-row;
+        @include u-margin-y(4);
+
+        li {
+            @extend .usa-nav__primary-item;
+            @extend .grid-col;
+            @include u-bg('gray-5');
+            a {
+                @extend .usa-nav__link;
+                width: 100%;
+                text-align: center;
+                display: block;
+                text-decoration: none;
+            }
+        }
+
+        li.active {
+            @include u-bg('white');
+            font-weight: bold;
+        }
+    }
+}
+
+// Products Block Styles
+.wc-block-grid__products .wc-block-grid__product-image img {
+    max-width: 300px;
+}
+
+.wc-block-grid__product-link {
+    @include u-font('body', 'md');
+}
+
+.wc-block-grid__product-price, .price {
+    @include u-font('serif', 'sm');
+}
+
+// Product Category Archive
+.woocommerce-page {
+    .woocommerce-result-count, .woocommerce-ordering {
+        float: none !important;
+    }
+}
+.product {
+    .media-figure {
+        height: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            height: auto;
+            max-width: 100%;
+            max-height: 200px;
+            width: auto;
+        }
+    }
+}
+
+// My Account
+.woocommerce-MyAccount-navigation {
+    ul {
+        @extend .usa-list;
+    }
+}
+
+.woocommerce-MyAccount-content  {
+    @extend .usa-prose;
+}

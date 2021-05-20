@@ -1,0 +1,21 @@
+{#/**
+ * Block Name: Hero Section
+ *
+ * USDWS Hero Section with Call to Action
+ */
+#}
+
+
+{% if is_preview %}
+<label><small>USDWS HERO SECTION</small></label>
+<hr />
+{% endif %}
+<section id="hero-{{ block.id }}" class="usa-hero" aria-label="{{ fields.title }}" style="background-image: url('{{fields.background_image.url}}')">
+    <div class="grid-container">
+        <div class="usa-hero__callout">
+        <h1 class="usa-hero__heading">{{ fields.title }}</h1>
+        <p>{{ fields.description }}</p>
+        <a class="usa-button" href="{{ fields.cta_url }}">{{ fields.cta_text }}</a>
+        </div>
+    </div>
+</section>

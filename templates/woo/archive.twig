@@ -1,0 +1,38 @@
+{% extends "base.twig" %}
+
+{% block content %}
+{% do action('woocommerce_before_main_content') %}
+<h1>{{ function('single_term_title', 'Currently browsing: ') }}</h1>
+
+<div class="grid-container">
+    <div class="grid-row grid-gap">
+        <div class="tablet:grid-col-10">
+            <div class="grid-row grid-gap width-full">
+                <div class="before-shop-loop width-full">
+                    {% do action('woocommerce_before_shop_loop') %}
+                </div>
+                {% for post in products %}
+                <div class="tablet:grid-col-4">
+                    {% include ["woo/tease-product.twig"] %}
+                </div>
+                {% endfor %}
+                <div class="width-full margin-y-2">
+                {% do action('woocommerce_after_shop_loop') %}
+                </div>
+            </div>
+        </div>
+        <div class="tablet:grid-col-2">
+            <h2 class="font-body-sm margin-top-0">Product Categories</h2>
+            <ul class="usa-sidenav font-body-">
+            {% for product_cat in product_categories %}
+                <li class="usa-sidenav__item">
+                    <a href="{{ function('get_term_link', product_cat.term_id) }}">{{ product_cat.name }}</a>
+                </li>
+            {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+
+{% do action('woocommerce_after_main_content') %}
+{% endblock %}

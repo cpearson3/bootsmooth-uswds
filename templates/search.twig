@@ -1,0 +1,20 @@
+{% extends "base.twig" %}
+
+{% block content %}
+<h1>{{title}}</h1>
+
+<form action="/" class="usa-search usa-search--small " role="search">
+    <label class="usa-sr-only" for="extended-search-field-small">Search small</label>
+    <input class="usa-input" id="extended-search-field-small" type="search" name="s" value="{{search_query}}">
+    <button class="usa-button" type="submit"><span class="usa-sr-only">Search</span></button>
+</form>
+{% if posts %}
+{% for post in posts %}
+{% include 'tease-search.twig' %}
+{% endfor %}
+{% else %}
+<p>No results found.</p>
+{% endif %}
+{% include 'partial/pagination.twig' %}
+
+{% endblock %}

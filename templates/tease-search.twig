@@ -1,0 +1,14 @@
+{% if post.type == 'post' %}
+    {% set terms = post.terms( {query:{taxonomy:'category', orderby:'name', order: 'ASC'}} ) %}
+{% elseif post.type == 'product' %}
+    {% set terms = post.terms( {query:{taxonomy:'product_cat', orderby:'name', order: 'ASC'}} ) %}
+{% endif %}
+
+<article class="tease tease-{{post.post_type}}" id="tease-{{post.ID}}">
+	{% block content %}
+		<h2 class="h2"><a href="{{post.link}}">{{post.title}}</a></h2>
+        {% for term in terms %}
+        <span class="usa-tag">{{ term }}</span>
+        {% endfor %}
+	{% endblock %}
+</article>

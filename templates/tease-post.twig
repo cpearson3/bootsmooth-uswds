@@ -1,0 +1,26 @@
+{% extends "tease.twig" %}
+{% set terms = post.terms( {query:{taxonomy:'category', orderby:'name', order: 'ASC'}} ) %}
+
+{% block content %}
+<div class="grid-row grid-gap margin-bottom-4">
+{% if post.thumbnail.src %}
+	<div class="tablet:grid-col-4">
+		<img src="{{post.thumbnail.src}}" />
+	</div>
+{% endif %}
+	<div class="tablet:grid-col-8">
+		<h2 class="margin-top-0"><a href="{{post.link}}">{{post.title}}</a></h2>
+		<p class="font-body-xs">
+			<time datetime="{{ post.date|date('Y-m-d H:i:s') }}">{{ post.date }}</time>
+		</p>
+		<p>
+		{% if terms %}
+		{% for term in terms %}
+			<span class="usa-tag">{{ term }}</span>
+		{% endfor %}
+		{% endif %}
+		</p>
+		<p>{{post.preview}}</p>
+	</div>
+</div>
+{% endblock %}

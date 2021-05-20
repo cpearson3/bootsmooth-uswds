@@ -1,0 +1,70 @@
+<div class="grid-container usa-footer__return-to-top">
+    <a href="#">Return to top</a>
+</div>
+<div class="usa-footer__primary-section padding-y-4">
+    <div class="grid-container">
+        <div class="grid-row grid-gap">
+            <div class="tablet:grid-col-6">
+                    <section class="usa-footer__primary-content">
+                        {{ footer_1 }}
+                    </section>
+            </div>
+            <div class="tablet:grid-col-6">
+                    <section class="usa-footer__primary-content">
+                        {{ footer_2 }}
+                    </section>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="usa-footer__secondary-section">
+    <div class="grid-container">
+        <div class="grid-row grid-gap">
+            <div class="usa-footer__logo grid-row mobile-lg:grid-col-6 mobile-lg:grid-gap-2">
+                <div class="mobile-lg:grid-col-auto">
+                    <p class="usa-footer__logo-heading margin-0">{{ site.name }}</p>
+                    <p class="font-body-sm margin-0">{{ options.copyright }}</p>
+                </div>
+            </div>
+            <div class="usa-footer__contact-links mobile-lg:grid-col-6">
+                <div class="usa-footer__social-links grid-row grid-gap-1">
+                    {% if options.facebook_link %}
+                    <div class="grid-col-auto">
+                        <a class="usa-social-link usa-social-link--facebook" href="{{ options.facebook_link }}" target="_blank">
+                            <span>Facebook</span>
+                        </a>
+                    </div>
+                    {% endif %}
+                    {% if options.twitter_link %}
+                    <div class="grid-col-auto">
+                        <a class="usa-social-link usa-social-link--twitter" href="{{ options.twitter_link }}" target="_blank">
+                            <span>Twitter</span>
+                        </a>
+                    </div>
+                    {% endif %}
+                    {% if options.youtube_link %}
+                    <div class="grid-col-auto">
+                        <a class="usa-social-link usa-social-link--youtube" href="{{ options.youtube_link }}" target="_blank">
+                            <span>YouTube</span>
+                        </a>
+                    </div>
+                    {% endif %}
+                    {% if options.instagram_link %}
+                    <div class="grid-col-auto">
+                        <a class="usa-social-link usa-social-link--instagram" href="{{ options.instagram_link }}" target="_blank">
+                            <span>Instagram</span>
+                        </a>
+                    </div>
+                    {% endif %}
+                    {% if options.rss_link %}
+                    <div class="grid-col-auto">
+                        <a class="usa-social-link usa-social-link--rss" href="{{ options.rss_link }}">
+                            <span>RSS</span>
+                        </a>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

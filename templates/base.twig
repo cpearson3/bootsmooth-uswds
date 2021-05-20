@@ -1,0 +1,72 @@
+{% block html_head_container %}
+
+{% include 'html-header.twig' %}
+	{% block head %}
+	{% endblock %}
+	{% if options.global_footer_code %}
+	{{ options.global_footer_code }}
+	{% endif %}
+	</head>
+{% endblock %}
+
+	<body class="{{body_class}}" data-template="base.twig">
+		<a class="skip-link screen-reader-text" href="#content">{{ _e( 'Skip to content') }}</a>
+
+		<div class="usa-overlay"></div>
+		<header class="usa-header usa-header--extended">
+			{% block header %}
+			<div class="usa-navbar maxw-desktop-lg">
+				<div class="usa-logo" id="basic-logo">
+				<em class="usa-logo__text"><a href="{{site.url}}" rel="home" aria-label="Home">
+
+				{% if options.site_logo %}
+					<img src="{{Image(options.site_logo).src}}" alt="{{ site.name }}" />
+				{% else %}
+					{{ site.name }}
+				{% endif %}
+				</a></em>
+				</div>
+				<button class="usa-menu-btn">Menu</button>
+			</div>
+			<nav aria-label="Primary navigation" class="usa-nav">
+				<div class="usa-nav__inner maxw-desktop-lg">
+					<button class="usa-nav__close"><img src="{{ theme.link }}/img/close.svg" role="img" alt="close"></button>
+					{% include "menu.twig" with {'items': menu.get_items, 'top_items': top_menu.get_items} %}
+				</div>
+			</nav>
+			{% endblock %}
+		</header>
+
+		<main id="content" role="main" class="usa-section">
+			<div class="grid-container">
+				<div class="grid-row grid-gap">
+					<div class="grid-col">
+					{% block content %}
+						Sorry, no content
+					{% endblock %}
+					</div>
+				{% if sidebar %}
+					<aside class="tablet:grid-col-3 {{ woocommerce ? 'woocommerce' : '' }}">
+						{{sidebar}}
+					</aside>
+				{% endif %}
+				</div>
+			</div>
+		</main>
+
+		{% block footer %}
+			<footer class="usa-footer usa-footer--big" id="footer">
+				{% include 'footer.twig' %}
+			</footer>
+			{{ function('wp_footer') }}
+			{% if options.global_footer_code %}
+			{{ options.global_footer_code }}
+			{% endif %}
+		{% endblock %}
+
+		<script src="{{ theme.link }}/dist/main.js"></script>
+		{% block scripts %}
+		{% endblock %}
+
+	</body>
+</html>

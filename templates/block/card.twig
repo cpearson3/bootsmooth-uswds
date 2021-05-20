@@ -1,0 +1,36 @@
+{#/**
+ * Block Name: Card
+ * USDWS Hero Section with Call to Action
+ */
+#}
+
+
+{% if is_preview %}
+<label><small>USDWS CARD</small></label>
+<hr />
+{% endif %}
+<div class="usa-card__container" id="card-{{block.id}}">
+    {% if fields.title %}
+    <header class="usa-card__header">
+        <h2 class="usa-card__heading">{{fields.title}}</h2>
+    </header>
+    {% endif %}
+    
+    <div class="usa-card__media">
+        <div class="usa-card__img">
+            <img src="{{fields.image.url}}"
+                alt="{{fields.image.alt}}">
+        </div>
+    </div>
+    {% if fields.is_centered %}
+    {% set card_body_classes = 'flex-column display-flex flex-justify-center'  %}
+    {% endif %}
+    <div class="usa-card__body {{ card_body_classes }}">
+        {{fields.description}}
+    </div>
+    {% if fields.cta_text %}
+    <div class="usa-card__footer">
+        <a class="usa-button" href="{{fields.cta_url}}">{{fields.cta_text}}</a>
+    </div>
+    {% endif %}
+</div>

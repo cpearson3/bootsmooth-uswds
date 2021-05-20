@@ -1,0 +1,20 @@
+{% extends "base.twig" %}
+{% set terms = post.terms( {query:{taxonomy:'category', orderby:'name', order: 'ASC'}} ) %}
+
+{% block content %}
+<article class="post-type-{{ post.post_type }}" id="post-{{ post.ID }}">
+	<h1 class="margin-0">{{ post.title }}</h1>
+	<p class="font-body-xs margin-0">
+		<time datetime="{{ post.date|date('Y-m-d H:i:s') }}">{{ post.date }}</time>
+	</p>
+	<p>
+	{% for term in terms %}
+		<span class="usa-tag">{{ term }}</span>
+	{% endfor %}
+	</p>
+	<section class="margin-y-4 usa-prose">
+		<img src="{{post.thumbnail.src}}" alt="{{post.title}}" />
+		{{post.content}}
+	</section>
+</article>
+{% endblock %}

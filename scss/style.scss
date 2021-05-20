@@ -1,0 +1,115 @@
+/*!
+ * Theme Name: USDWS Timber WooCommerce
+ * Description: WooCommerce-enabled theme built with US Web Design System for accessibility
+ * Author: Clarence Pearson
+*/
+
+@import 'uswds-theme-general';
+@import 'uswds-theme-typography';
+@import 'uswds-theme-spacing';
+@import 'uswds-theme-color';
+@import 'uswds-theme-utilities';
+
+@import "uswds";
+// Import theme custom styles
+@import 'uswds-theme-custom-styles';
+@import "woocommerce.scss";
+@import "theme.scss";
+
+// Navigation
+.usa-header {
+    .usa-navbar {
+        @include u-maxw('desktop-lg');
+    }
+
+    .usa-nav__inner {
+        @include u-maxw('desktop-lg');
+    }
+
+    // Current Menu Item
+    .current-menu-item a {
+        @include nav-border-extended;
+        font-weight: bold;
+    }
+}
+
+
+// Main sytles
+main {
+    
+    // Sidebar Widgets
+    aside {
+        ul {
+            @extend .usa-list--unstyled;
+            @extend .font-mono-sm;
+
+            li {
+                @include u-margin-bottom(1);
+            }
+        }
+
+        // Products
+        .product_list_widget {
+            @extend .usa-card-group;
+
+            li {
+                width: 100%;
+
+                img {
+                    display: block;
+                    height: 100px;
+                    width: auto;
+                    margin: 0 auto;
+                }
+            }
+        }
+    }
+
+    // Inputs and Buttons
+    select {
+        @extend .usa-select;
+    }
+
+    input[type="text"] {
+        @extend .usa-input;
+    }
+
+    button {
+        @extend .usa-button;
+        @extend .usa-button--base;
+    }
+
+    // Pagination
+    ul.pagination {
+        @extend .usa-button-group;
+        @extend .usa-button-group--segmented;
+        @include u-margin-y(4);
+        
+        justify-content: center;
+        li {
+            @extend .usa-button-group__item;
+
+            a {
+                @extend .usa-button;
+                @extend .usa-button--outline;
+            }
+
+            span {
+                @extend .usa-button;
+            }
+        }
+    }
+
+    // Gutenberg Block Styles
+    .wp-block-columns {
+        @include at-media("mobile") {
+           margin: 0;
+        }
+    }
+
+    .wp-block-column {
+        @include at-media("mobile") {
+            @include u-padding-bottom(4);
+        }
+    }
+}
